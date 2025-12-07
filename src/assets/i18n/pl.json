@@ -1,0 +1,37 @@
+{
+  "calendar": {
+    "month": {
+      "january": "Styczeń",
+      "february": "Luty",
+      "march": "Marzec",
+      "april": "Kwiecień",
+      "may": "Maj",
+      "june": "Czerwiec",
+      "july": "Lipiec",
+      "august": "Sierpień",
+      "september": "Wrzesień",
+      "october": "Październik",
+      "november": "Listopad",
+      "december": "Grudzień"
+    }
+  },
+  "events": {
+    "eventCalendar": "Kalendarz wydarzeń kanału",
+    "subscriptionRecord": "Rekord subskrypcji na Twitch"
+  },
+  "platforms": {
+    "twitch": "Twitch",
+    "kick": "Kick",
+    "youtube": "Youtube",
+    "all": "Wszystkie"
+  },
+  "statistic": {
+    "title": "Statystyki roczne platformy",
+    "follow": "Obserwujący",
+    "avgNumberOfViewers": "Średnia liczba widzów",
+    "subs": "Subskrybenci",
+    "maxSubs": "Maksymalna ilość subów",
+    "streamHours": "Streamowane godziny",
+    "watchedOurs": "Obejrzane godziny"
+  }
+}

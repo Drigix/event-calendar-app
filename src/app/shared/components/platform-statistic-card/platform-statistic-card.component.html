@@ -1,0 +1,12 @@
+<div class="platform-statistic-card col-3" [ngStyle]="{'border-color': selectedPlatformStatisticColor}">
+  <div class="flex justify-content-center align-items-center statistic-view-element grid"
+       enterClass="fadeinleft">
+    <div class="col-3 flex justify-content-center mt-1">
+      <i class="text-3xl" [ngClass]="platformStatistic.icon" [ngStyle]="{'color': backgroundColor}"></i>
+    </div>
+    <div class="col-9 flex flex-column mt-1">
+      <label class="mx-2 grey-text">{{this.platformStatistic.labelField | translate}}</label>
+      <label class="mx-2 font-bold">{{this.platformStatistic.value}}</label>
+    </div>
+  </div>
+</div>

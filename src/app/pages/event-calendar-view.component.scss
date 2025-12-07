@@ -1,0 +1,151 @@
+.streamer-profile {
+  img {
+    border-radius: 50%;
+  }
+}
+
+.streamer-profile-info {
+  img {
+    width: 35px;
+    cursor: pointer;
+    border-radius: 14px;
+  }
+}
+
+.statistic-view {
+
+}
+
+.statistic-view-options {
+  cursor: pointer;
+  label {
+    font-weight: bold;
+  }
+  img {
+    height: 15px !important;
+    margin-right: 8px;
+  }
+  button {
+    width: 150px;
+  }
+}
+
+.statistic-view-element {
+  height: 75px;
+}
+
+.event-calendar-view {
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
+}
+
+.event-list-overflow {
+  max-height: 550px;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  padding: 0 30px;
+}
+
+.event-view {
+  border: 2px solid gray;
+  border-radius: 14px;
+  transition: all 0.3s ease;
+  margin: 8px;
+}
+
+.event-view:hover {
+  transform: scale(1.03);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.event-clips {
+  display: flex;
+  flex-direction: row;
+  margin-top: 15px;
+  margin-left: 4px;
+  margin-right: 4px;
+}
+
+.event-clip {
+  width: 100px;
+  border: 1px solid;
+  border-radius: 14px;
+  cursor: pointer;
+  img {
+    width: 35px;
+    padding: 0px;
+    border-top-left-radius: 14px;
+    border-bottom-left-radius: 14px;
+  }
+  i {
+    padding-left: 20px;
+  }
+}
+
+:host ::ng-deep .p-button {
+  width: 150px !important;
+  background: #1E1E22;
+  color: #b8b2b2;
+  border-color: gray;
+}
+
+:host ::ng-deep .selected-item .p-button {
+  border: 2px solid var(--p-button-primary-active-background) !important;
+}
+
+.platform-icon-tab {
+  width: 40%;
+  height: 46px;
+  display: flex;
+  margin: 0 5px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 14px;
+  background: #1E1E22;
+  border: 1px solid rgba(255,255,255,0.08);
+  cursor: pointer;
+  transition: background .18s, transform .18s, border-color .18s;
+  img { height: 25px; }
+
+  &:focus-visible {
+    outline: 2px solid var(--accent-color);
+    outline-offset: 2px;
+  }
+}
+
+.platform-icon-tab--active {
+  background: var(--accent-color);
+  border-color: var(--accent-color);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 14px -6px var(--accent-color);
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding:0;
+  margin:-1px;
+  overflow:hidden;
+  clip:rect(0,0,0,0);
+  border:0;
+}
+
+:host ::ng-deep .fadeinleft {
+  animation-duration: 1s !important;
+  animation-delay: 0.15s !important;
+  animation-timing-function: ease-out;
+}
+
+:host ::ng-deep .fadeinright {
+  animation-duration: 1s !important;
+  animation-delay: 0.15s !important;
+  animation-timing-function: ease-out;
+}
+
+:host ::ng-deep .fadeinup {
+  animation-duration: 1s !important;
+  animation-delay: 0.15s !important;
+  animation-timing-function: ease-out;
+}

@@ -4,8 +4,6 @@ import {CalendarOptions} from '@fullcalendar/core';
 import dayGridPlugin from '@fullcalendar/daygrid';
 import interactionPlugin from '@fullcalendar/interaction';
 import bootstrap5Plugin from '@fullcalendar/bootstrap5';
-import 'bootstrap/dist/css/bootstrap.css';
-import 'bootstrap-icons/font/bootstrap-icons.css';
 import {CalendarMonth} from '../models/calendar-month.model';
 import {Event} from '../models/event.model';
 import {CalendarMonthDictionary} from '../dictionaries/calendar-month.dictionary';

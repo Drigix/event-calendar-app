@@ -31,7 +31,7 @@ import {TranslateDirective, TranslatePipe} from '@ngx-translate/core';
 import {PlatformStatisticCardComponent} from './components/platform-statistic-card/platform-statistic-card.component';
 
 export const COMMON_IMPORTS =
-  [CommonModule, RouterModule, TranslateDirective, TranslatePipe];
+  [CommonModule, RouterModule, TranslateDirective, TranslatePipe, Skeleton];
 
 export const FORMS_IMPORTS =
   [FormsModule];

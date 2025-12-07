@@ -1,4 +1,4 @@
-import {Component, HostBinding, inject, OnInit} from '@angular/core';
+import {ChangeDetectorRef, Component, HostBinding, inject, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
 import {CalendarOptions} from '@fullcalendar/core';
 import dayGridPlugin from '@fullcalendar/daygrid';
@@ -32,6 +32,7 @@ export class EventCalendarViewComponent implements OnInit {
   protected readonly PlatformColorEnum = PlatformColorEnum;
 
   private router = inject(Router);
+  private cd = inject(ChangeDetectorRef);
   platformButtonsDictionaries: PlatformButtonConfig[] = platformButtonDictionaries;
   selectedPlatformStatistic?: PlatformEnum = PlatformEnum.TWITCH;
   selectedPlatformStatisticColor?: string = PlatformColorEnum.TWITCH_ALFA;
@@ -49,6 +50,7 @@ export class EventCalendarViewComponent implements OnInit {
 
   calendarMonthDictionaries: CalendarMonth[] = CalendarMonthDictionary;
   selectedCalendarMonth: CalendarMonth | null = null;
+  loadingEvents = false;
 
   events: Event[] = [];
 
@@ -88,7 +90,8 @@ export class EventCalendarViewComponent implements OnInit {
 
   onCalendarMonthClick(value: CalendarMonth): void {
     this.selectedCalendarMonth = value;
-    this.loadMonthEvents(this.selectedCalendarMonth.id);
+    this.loadingEvents = true;
+    this.loadMonthEvents(this.selectedCalendarMonth!.id);
   }
 
   onClickLinkClick(url: string): void {
@@ -97,5 +100,9 @@ export class EventCalendarViewComponent implements OnInit {
 
   private loadMonthEvents(month: MonthEnum): void {
     this.events = MonthEventHelper.loadMonthEvents(month);
+    setTimeout(() => {
+      this.loadingEvents = false;
+      this.cd.detectChanges();
+    }, 800);
   }
 }

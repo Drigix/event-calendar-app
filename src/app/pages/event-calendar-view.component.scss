@@ -40,6 +40,14 @@
   overflow-x: hidden;
 }
 
+.spinner-view {
+  height: 550px;
+  overflow: hidden;
+  width: 100%;
+  display: flex;
+  padding: 0 30px;
+}
+
 .event-list-overflow {
   max-height: 550px;
   overflow-y: scroll;
@@ -52,6 +60,11 @@
   border-radius: 14px;
   transition: all 0.3s ease;
   margin: 8px;
+
+  img {
+    width: 100%;
+    height: auto;
+  }
 }
 
 .event-view:hover {

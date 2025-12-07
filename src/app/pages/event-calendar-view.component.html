@@ -82,7 +82,7 @@
          enterClass="fadeinup"
          >
       @for (month of calendarMonthDictionaries; track month.id) {
-        <p-button class="flex justify-content-center md:col-1 sm:col-6"
+        <p-button class="flex justify-content-center col-6 lg:col-1 md:col-6 sm:col-6"
                   [ngClass]="{'selected-item': month.id === selectedCalendarMonth?.id}"
                   [label]="month.labelName | translate"
                   (onClick)="onCalendarMonthClick(month)"></p-button>
@@ -90,51 +90,55 @@
     </div>
 
     <!-- Events List with Staggered Animation -->
-    <div class="grid event-list-overflow">
-      @for(event of events; track event.id; let idx = $index) {
-        <div class="col-12 grid event-view"
-             pAnimateOnScroll
-             [enterClass]="idx % 2 === 0 ? 'fadeinleft' : 'fadeinright'"
-             [ngStyle]="{'border-color': event.platform === PlatformEnum.TWITCH ?
-                     PlatformColorEnum.TWITCH :
-                     PlatformColorEnum.KICK}">
-          <div class="xl:col-4 lg:col-12 md:col-12 sm:col-12">
-            <img [src]="event.img"
-                 pAnimateOnScroll
-                 />
-          </div>
-          <div class="xl:col-8 lg:col-12 md:col-12 sm:col-12 flex flex-column">
-            <h3 pAnimateOnScroll>
-              {{event.labelName | translate}}
-            </h3>
-            <div class="flex align-items-center text-xl"
-                 pAnimateOnScroll
-                >
-              <i class="pi pi-calendar"
-                 [ngStyle]="{'color': event.platform === PlatformEnum.TWITCH ?
-                     PlatformColorEnum.TWITCH :
-                     PlatformColorEnum.KICK}"
-              ></i>
-              <label class="mx-2">{{event.date | date: 'longDate'}}</label>
-            </div>
-            <div class="event-clips gap-4"
-                 pAnimateOnScroll
-                 >
-              @for (clip of event.clips; track clip.id; let clipIdx = $index) {
-                <div class="event-clip grid align-items-center"
-                     pAnimateOnScroll
-                     enterClass="zoomin"
-                     [ngStyle]="{'border-color': event.platform === PlatformEnum.TWITCH ?
-                     PlatformColorEnum.TWITCH :
-                     PlatformColorEnum.KICK}"
-                     (click)="onClickLinkClick(clip.url)">
-                  <img class="col-6" [src]="event.platform | platformImgPipe"/>
-                  <i class="pi pi-link" [ngStyle]="event.platform | clipStylePipe"></i>
-                </div>
-              }
-            </div>
-          </div>
+    <div [ngClass]="{'event-list-overflow': !this.loadingEvents}" class="grid">
+      @if (this.loadingEvents) {
+        <div class="spinner-view">
+          <p-skeleton height="550px" borderRadius="16px" />
         </div>
+      } @else {
+        @for(event of events; track event.id; let idx = $index) {
+          <div class="col-12 grid event-view"
+               [ngStyle]="{'border-color': event.platform === PlatformEnum.TWITCH ?
+                       PlatformColorEnum.TWITCH :
+                       PlatformColorEnum.KICK}">
+            <div class="xl:col-4 lg:col-12 md:col-12 sm:col-12">
+              <img [src]="event.img"
+                   pAnimateOnScroll
+                   />
+            </div>
+            <div class="xl:col-8 lg:col-12 md:col-12 sm:col-12 flex flex-column">
+              <h3 pAnimateOnScroll>
+                {{event.labelName | translate}}
+              </h3>
+              <div class="flex align-items-center text-xl"
+                   pAnimateOnScroll
+                  >
+                <i class="pi pi-calendar"
+                   [ngStyle]="{'color': event.platform === PlatformEnum.TWITCH ?
+                       PlatformColorEnum.TWITCH :
+                       PlatformColorEnum.KICK}"
+                ></i>
+                <label class="mx-2">{{event.date | date: 'longDate'}}</label>
+              </div>
+              <div class="event-clips gap-4"
+                   pAnimateOnScroll
+                   >
+                @for (clip of event.clips; track clip.id; let clipIdx = $index) {
+                  <div class="event-clip grid align-items-center"
+                       pAnimateOnScroll
+                       enterClass="zoomin"
+                       [ngStyle]="{'border-color': event.platform === PlatformEnum.TWITCH ?
+                       PlatformColorEnum.TWITCH :
+                       PlatformColorEnum.KICK}"
+                       (click)="onClickLinkClick(clip.url)">
+                    <img class="col-6" [src]="event.platform | platformImgPipe"/>
+                    <i class="pi pi-link" [ngStyle]="event.platform | clipStylePipe"></i>
+                  </div>
+                }
+              </div>
+            </div>
+          </div>
+        }
       }
     </div>
   </div>
